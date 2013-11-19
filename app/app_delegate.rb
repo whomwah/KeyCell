@@ -1,13 +1,14 @@
 class AppDelegate
 
   def application(application, didFinishLaunchingWithOptions:launchOptions)
+    App.shared.setStatusBarStyle(UIStatusBarStyleLightContent)
+
     @director = Joybox::Configuration.setup do
       director display_stats: true
     end
 
     @navigation_controller = UINavigationController.alloc.initWithRootViewController(@director)
     @navigation_controller.navigationBarHidden = true
-    @navigation_controller.navigationBar.setBarTintColor('black'.to_color)
 
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @window.setRootViewController(@navigation_controller)
